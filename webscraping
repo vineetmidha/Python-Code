@@ -1,0 +1,23 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.oyorooms.com/hotels-in-delhi/"
+
+# Step-1: Get the HTML
+
+req = requests.get(url)  # request object
+htmlContent = req.content
+
+# Step-2: Parse the HTML
+    
+soup = BeautifulSoup(htmlContent, 'html.parser')
+
+print(soup)
+
+# Step-3: Traverse the HTML tree
+
+all_hotels = soup.find_all('div', {'class': 'hotelCardListing'})
+
+for hotel in all_hotels:
+        hotel_name = hotel.find("h3", {"class": "ListingHotelDescription__hotelName"})
+        print(hotel_name)
