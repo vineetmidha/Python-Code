@@ -8,9 +8,8 @@ while True:
         
     a.append(n)
     
-for x in a:
-    if x > 0:
-        print(x, end=',')
+print([x for x in a if x > 0])
+
 
 '''
 OUTPUT:
@@ -21,6 +20,6 @@ Enter a number [0 to exit]: 5
 Enter a number [0 to exit]: 64
 Enter a number [0 to exit]: -14
 Enter a number [0 to exit]: 0
-12,5,64,
+[12,5,64]
 
 '''
